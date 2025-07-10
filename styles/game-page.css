@@ -581,28 +581,201 @@
     background: #218838;
 }
 
-/* Responsive */
+/* Responsive - Mejoras para móvil */
 @media (max-width: 768px) {
+    .game-main {
+        padding-top: 120px;
+    }
+    
     .purchase-section {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .cart-sidebar {
         position: static;
         order: -1;
+        margin-bottom: 1rem;
     }
     
     .game-header {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .game-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .game-info h1 {
+        font-size: 2rem;
+    }
+    
+    .game-info p {
+        font-size: 1rem;
+    }
+    
+    .product-category {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .product-category h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .products {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .product-card {
+        padding: 1.2rem;
+    }
+    
+    .product-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .product-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .product-description {
+        font-size: 0.85rem;
+    }
+    
+    .product-price {
+        font-size: 1.2rem;
+    }
+    
+    .quantity-selector {
+        margin: 1rem 0;
+    }
+    
+    .qty-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .quantity {
+        font-size: 1.1rem;
+        min-width: 40px;
+    }
+    
+    .add-to-cart {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
     
     .promo-badge {
         font-size: 0.6rem;
         padding: 0.2rem 0.6rem;
+        top: -3px;
+        right: -3px;
+    }
+    
+    /* Cart sidebar móvil */
+    .cart-sidebar {
+        padding: 1.2rem;
+    }
+    
+    .cart-sidebar h3 {
+        font-size: 1.3rem;
+    }
+    
+    .cart-item {
+        padding: 0.8rem;
+    }
+    
+    .cart-item-info h4 {
+        font-size: 0.95rem;
+    }
+    
+    .cart-item-price {
+        font-size: 0.9rem;
+    }
+    
+    .checkout-btn {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    /* Modal checkout móvil */
+    .checkout-modal {
+        max-width: 95%;
+        margin: 2% auto;
+        max-height: 95vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .submit-order-btn {
+        padding: 1.2rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .game-header {
+        padding: 1rem;
+    }
+    
+    .game-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .game-info h1 {
+        font-size: 1.7rem;
+    }
+    
+    .product-category {
+        padding: 1rem;
+    }
+    
+    .product-card {
+        padding: 1rem;
+    }
+    
+    .checkout-modal {
+        margin: 1% auto;
+        padding: 1rem;
+    }
+}
+
+/* Mejoras táctiles para dispositivos móviles */
+@media (hover: none) and (pointer: coarse) {
+    .product-card:hover {
+        transform: none;
+    }
+    
+    .product-card:active {
+        transform: scale(0.98);
+    }
+    
+    .qty-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .add-to-cart:active {
+        transform: scale(0.98);
     }
 }

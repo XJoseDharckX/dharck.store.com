@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameRecharge - Recargas de Juegos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameRecharge</span>
+            </div>
+            <nav class="nav">
+                <a href="#home">Inicio</a>
+                <a href="#games">Juegos</a>
+                <a href="#contact">Contacto</a>
+                <div class="currency-display">
+                    <span id="current-currency">USD</span>
+                    <span id="current-country">🌍</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Recargas Rápidas y Seguras</h1>
+            <p>Recarga tus juegos favoritos de forma instantánea</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span>+10,000 Clientes</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-clock"></i>
+                    <span>Entrega Inmediata</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Seguro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <h2>Juegos Disponibles</h2>
+            <div class="games-grid">
+                <div class="game-card" onclick="window.location.href='lords-mobile.html'">
+                    <div class="game-image">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Lords Mobile</h3>
+                    <p>Gemas y recursos para tu reino</p>
+                    <div class="game-price">Desde <span class="price" data-usd="0.99">$0.99</span></div>
+                </div>
+
+                <div class="game-card" onclick="window.location.href='blood-strike.html'">
+                    <div class="game-image">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>Blood Strike</h3>
+                    <p>Gold y Battle Pass</p>
+                    <div class="game-price">Desde <span class="price" data-usd="1.99">$1.99</span></div>
+                </div>
+
+                <div class="game-card" onclick="window.location.href='free-fire.html'">
+                    <div class="game-image">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Free Fire</h3>
+                    <p>Diamantes y pases</p>
+                    <div class="game-price">Desde <span class="price" data-usd="0.99">$0.99</span></div>
+                </div>
+
+                <div class="game-card" onclick="window.location.href='genshin-impact.html'">
+                    <div class="game-image">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Genshin Impact</h3>
+                    <p>Primogemas y Welkin Moon</p>
+                    <div class="game-price">Desde <span class="price" data-usd="4.99">$4.99</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seller Info -->
+    <section class="seller-info">
+        <div class="container">
+            <h2>Vendedor Oficial</h2>
+            <div class="seller-card">
+                <div class="seller-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="seller-details">
+                    <h3>XJoseDharckX</h3>
+                    <p><i class="fas fa-phone"></i> +584126027407</p>
+                    <p><i class="fas fa-star"></i> Vendedor Verificado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Country Selection Modal -->
+    <div id="country-modal" class="modal">
+        <div class="modal-content">
+            <h3>Selecciona tu País</h3>
+            <p>Esto nos ayuda a ofrecerte los mejores precios y métodos de pago</p>
+            <div class="country-grid">
+                <div class="country-option" data-country="VE" data-currency="VES">
+                    <span class="flag">🇻🇪</span>
+                    <span>Venezuela</span>
+                </div>
+                <div class="country-option" data-country="CO" data-currency="COP">
+                    <span class="flag">🇨🇴</span>
+                    <span>Colombia</span>
+                </div>
+                <div class="country-option" data-country="MX" data-currency="MXN">
+                    <span class="flag">🇲🇽</span>
+                    <span>México</span>
+                </div>
+                <div class="country-option" data-country="AR" data-currency="ARS">
+                    <span class="flag">🇦🇷</span>
+                    <span>Argentina</span>
+                </div>
+                <div class="country-option" data-country="US" data-currency="USD">
+                    <span class="flag">🇺🇸</span>
+                    <span>Estados Unidos</span>
+                </div>
+                <div class="country-option" data-country="OTHER" data-currency="USD">
+                    <span class="flag">🌍</span>
+                    <span>Otro País</span>
+                </div>
+            </div>
+            <button id="skip-country" class="btn-secondary">Omitir</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GameRecharge. Todos los derechos reservados.</p>
+            <a href="admin.html" class="admin-link">Panel Admin</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/currency.js"></script>
+</body>
+</html>

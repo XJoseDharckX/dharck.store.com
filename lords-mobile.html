@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lords Mobile - Recargas | GameRecharge</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/game-page.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <i class="fas fa-gamepad"></i>
+                <span>GameRecharge</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#games">Juegos</a>
+                <div class="currency-display">
+                    <span id="current-currency">USD</span>
+                    <span id="current-country">🌍</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="game-main">
+        <div class="container">
+            <div class="game-header">
+                <div class="game-icon">
+                    <img src="image/lm1.png" alt="Lords Mobile" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                </div>
+                <div class="game-info">
+                    <h1>Lords Mobile</h1>
+                    <p>Diamantes, pases y paquetes especiales para tu reino</p>
+                    <div class="game-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>4.8/5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="purchase-section">
+                <div class="products-grid">
+                    <!-- Diamantes en Promoción -->
+                    <div class="product-category promo-category">
+                        <h3><i class="fas fa-fire"></i> Diamantes en Promoción <i class="fas fa-fire"></i></h3>
+                        <div class="promo-banner">
+                            <span>¡OFERTAS ESPECIALES CON CUPÓN!</span>
+                        </div>
+                        <div class="products">
+                            <div class="product-card promo-card" data-product="gems-499-promo" data-price="5.20" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-2.png" alt="499 Diamantes">
+                                </div>
+                                <h4>💎499+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="5.20">$5.20</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-499-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-499-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-499-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-499-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-499-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-999-promo" data-price="12.00" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-3.png" alt="999 Diamantes">
+                                </div>
+                                <h4>💎999+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="12.00">$12.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-999-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-999-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-999-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-999-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-999-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-1999-promo" data-price="20.00" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-4.png" alt="1999 Diamantes">
+                                </div>
+                                <h4>💎1999+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="20.00">$20.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-1999-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-1999-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-1999-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-1999-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-1999-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-2499-promo" data-price="25.50" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-5.png" alt="2499 Diamantes">
+                                </div>
+                                <h4>💎2499+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="25.50">$25.50</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2499-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-2499-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2499-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-2499-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-2499-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-2999-promo" data-price="30.00" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-6.png" alt="2999 Diamantes">
+                                </div>
+                                <h4>💎2999+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="30.00">$30.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2999-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-2999-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2999-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-2999-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-2999-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-4999-promo" data-price="48.50" data-enabled="true">
+                                <div class="promo-badge">¡PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/prize-7.png" alt="4999 Diamantes">
+                                </div>
+                                <h4>💎4999+CUPÓN</h4>
+                                <p class="product-description">Diamantes + Cupón especial</p>
+                                <p class="product-price" data-usd="48.50">$48.50</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-4999-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-4999-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-4999-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-4999-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-4999-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card promo-card" data-product="gems-9999-promo" data-price="95.00" data-enabled="true">
+                                <div class="promo-badge">¡MEGA PROMO!</div>
+                                <div class="product-icon">
+                                    <img src="image/icon-happy.png" alt="9999 Diamantes">
+                                </div>
+                                <h4>💎9999+CUPÓN</h4>
+                                <p class="product-description">Mega pack de diamantes + Cupón</p>
+                                <p class="product-price" data-usd="95.00">$95.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-9999-promo', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-9999-promo">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-9999-promo', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-9999-promo')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-9999-promo')">Deshabilitar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pases y Diamantes Normales -->
+                    <div class="product-category">
+                        <h3><i class="fas fa-gem"></i> Pases y Diamantes</h3>
+                        <div class="products">
+                            <!-- Pases -->
+                            <div class="product-card" data-product="weekly-pass" data-price="2.30" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/7day.png" alt="Pase Semanal">
+                                </div>
+                                <h4>PASE SEMANAL</h4>
+                                <p class="product-description">7 días de beneficios</p>
+                                <p class="product-price" data-usd="2.30">$2.30</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('weekly-pass', -1)">-</button>
+                                    <span class="quantity" id="qty-weekly-pass">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('weekly-pass', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('weekly-pass')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('weekly-pass')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="monthly-pass" data-price="19.90" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/30day.png" alt="Pase Mensual">
+                                </div>
+                                <h4>PASE MENSUAL</h4>
+                                <p class="product-description">30 días de beneficios premium</p>
+                                <p class="product-price" data-usd="19.90">$19.90</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('monthly-pass', -1)">-</button>
+                                    <span class="quantity" id="qty-monthly-pass">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('monthly-pass', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('monthly-pass')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('monthly-pass')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <!-- Diamantes Normales -->
+                            <div class="product-card" data-product="gems-209" data-price="2.30" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-2.png" alt="209 Diamantes">
+                                </div>
+                                <h4>209💎</h4>
+                                <p class="product-price" data-usd="2.30">$2.30</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-209', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-209">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-209', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-209')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-209')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-524" data-price="5.20" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-3.png" alt="524 Diamantes">
+                                </div>
+                                <h4>524💎</h4>
+                                <p class="product-price" data-usd="5.20">$5.20</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-524', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-524">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-524', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-524')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-524')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-1048" data-price="10.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-4.png" alt="1048 Diamantes">
+                                </div>
+                                <h4>1048💎</h4>
+                                <p class="product-price" data-usd="10.00">$10.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-1048', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-1048">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-1048', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-1048')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-1048')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-2096" data-price="19.50" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-5.png" alt="2096 Diamantes">
+                                </div>
+                                <h4>2096💎</h4>
+                                <p class="product-price" data-usd="19.50">$19.50</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2096', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-2096">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-2096', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-2096')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-2096')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-3144" data-price="29.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-6.png" alt="3144 Diamantes">
+                                </div>
+                                <h4>3144💎</h4>
+                                <p class="product-price" data-usd="29.00">$29.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-3144', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-3144">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-3144', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-3144')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-3144')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-5240" data-price="48.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-6.png" alt="5240 Diamantes">
+                                </div>
+                                <h4>5240💎</h4>
+                                <p class="product-price" data-usd="48.00">$48.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-5240', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-5240">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-5240', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-5240')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-5240')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-6812" data-price="62.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-6.png" alt="6812 Diamantes">
+                                </div>
+                                <h4>6812💎</h4>
+                                <p class="product-price" data-usd="62.00">$62.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-6812', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-6812">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-6812', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-6812')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-6812')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-9956" data-price="92.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-7.png" alt="9956 Diamantes">
+                                </div>
+                                <h4>9956💎</h4>
+                                <p class="product-price" data-usd="92.00">$92.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-9956', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-9956">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-9956', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-9956')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-9956')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-19912" data-price="178.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-7.png" alt="19912 Diamantes">
+                                </div>
+                                <h4>19912💎</h4>
+                                <p class="product-price" data-usd="178.00">$178.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-19912', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-19912">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-19912', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-19912')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-19912')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-30392" data-price="270.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/prize-7.png" alt="30392 Diamantes">
+                                </div>
+                                <h4>30392💎</h4>
+                                <p class="product-price" data-usd="270.00">$270.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-30392', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-30392">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-30392', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-30392')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-30392')">Deshabilitar</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-product="gems-50304" data-price="440.00" data-enabled="true">
+                                <div class="product-icon">
+                                    <img src="image/icon-happy.png" alt="50304 Diamantes">
+                                </div>
+                                <h4>50304💎</h4>
+                                <p class="product-description">Mega pack de diamantes</p>
+                                <p class="product-price" data-usd="440.00">$440.00</p>
+                                <div class="quantity-selector">
+                                    <button class="qty-btn" onclick="changeQuantity('gems-50304', -1)">-</button>
+                                    <span class="quantity" id="qty-gems-50304">1</span>
+                                    <button class="qty-btn" onclick="changeQuantity('gems-50304', 1)">+</button>
+                                </div>
+                                <button class="add-to-cart" onclick="addToCart('gems-50304')">Agregar</button>
+                                <div class="admin-controls" style="display: none;">
+                                    <button class="toggle-product" onclick="toggleProduct('gems-50304')">Deshabilitar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-sidebar">
+                    <div class="cart-header">
+                        <h3>Carrito de Compras</h3>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                    <div class="cart-items" id="cart-items">
+                        <p class="empty-cart">Tu carrito está vacío</p>
+                    </div>
+                    <div class="cart-total">
+                        <div class="total-line">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="total-line total">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                    </div>
+                    <button class="checkout-btn" id="checkout-btn" onclick="proceedToCheckout()" disabled>
+                        Proceder al Pago
+                    </button>
+                </div>
+            </div>
+
+            <div class="seller-section">
+                <h3>Vendedor Oficial</h3>
+                <div class="seller-card">
+                    <div class="seller-avatar">
+                        <img src="image/xjosedharckx.jpg" alt="XJoseDharckX" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <div class="seller-details">
+                        <h4>XJoseDharckX</h4>
+                        <p><i class="fas fa-phone"></i> +584126027407</p>
+                        <p><i class="fas fa-star"></i> Vendedor Verificado</p>
+                        <p><i class="fas fa-clock"></i> Entrega en 5-15 minutos</p>
+                        <p><i class="fas fa-shield-alt"></i> 100% Seguro y Confiable</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Toggle -->
+            <div class="admin-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+                <button id="admin-mode-btn" onclick="toggleAdminMode()" style="background: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer;">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content checkout-modal">
+            <div class="modal-header">
+                <h3>Finalizar Compra - Lords Mobile</h3>
+                <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            </div>
+            <div class="checkout-form">
+                <div class="form-group">
+                    <label>ID de Usuario en Lords Mobile:</label>
+                    <input type="text" id="game-id" placeholder="Ingresa tu ID de Lords Mobile" required>
+                    <small>Puedes encontrar tu ID en el perfil del juego</small>
+                </div>
+                <div class="form-group">
+                    <label>Método de Pago:</label>
+                    <select id="payment-method" required>
+                        <option value="">Seleccionar método</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="zelle">Zelle</option>
+                        <option value="binance">Binance Pay</option>
+                        <option value="bank">Transferencia Bancaria</option>
+                        <option value="crypto">Criptomonedas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Email de Contacto:</label>
+                    <input type="email" id="contact-email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Notas Adicionales:</label>
+                    <textarea id="order-notes" placeholder="Información adicional, servidor del juego, etc. (opcional)"></textarea>
+                </div>
+                <div class="order-summary">
+                    <h4>Resumen del Pedido</h4>
+                    <div id="checkout-items"></div>
+                    <div class="checkout-total">
+                        <strong>Total: <span id="checkout-total">$0.00</span></strong>
+                    </div>
+                </div>
+                <button class="submit-order-btn" onclick="submitOrder()">Confirmar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

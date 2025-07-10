@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Game Recharges</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="image/logo.png" alt="Logo" class="admin-logo">
+                    <h1>Panel de Administración</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-sync" id="syncGoogleSheets">
+                        <i class="fas fa-sync-alt"></i> Sincronizar Google Sheets
+                    </button>
+                    <button class="btn-logout" onclick="window.location.href='index.html'">
+                        <i class="fas fa-sign-out-alt"></i> Salir
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="admin-nav">
+            <button class="nav-tab active" data-tab="dashboard">
+                <i class="fas fa-chart-dashboard"></i> Dashboard
+            </button>
+            <button class="nav-tab" data-tab="products">
+                <i class="fas fa-gamepad"></i> Productos
+            </button>
+            <button class="nav-tab" data-tab="profits">
+                <i class="fas fa-dollar-sign"></i> Ganancias
+            </button>
+            <button class="nav-tab" data-tab="orders">
+                <i class="fas fa-shopping-cart"></i> Órdenes
+            </button>
+            <button class="nav-tab" data-tab="exchange">
+                <i class="fas fa-exchange-alt"></i> Tipos de Cambio
+            </button>
+            <button class="nav-tab" data-tab="vendors">
+                <i class="fas fa-users"></i> Vendedores
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Órdenes Totales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalRevenue">$0</h3>
+                            <p>Ingresos Totales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalProfits">$0</h3>
+                            <p>Ganancias Totales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="activeProducts">0</h3>
+                            <p>Productos Activos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-section">
+                    <div class="chart-card">
+                        <h3>Ventas por Juego</h3>
+                        <canvas id="gamesSalesChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Ganancias por Vendedor</h3>
+                        <canvas id="vendorProfitsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div class="tab-content" id="products">
+                <div class="section-header">
+                    <h2>Gestión de Productos</h2>
+                    <button class="btn-primary" id="addProductBtn">
+                        <i class="fas fa-plus"></i> Agregar Producto
+                    </button>
+                </div>
+
+                <div class="game-selector">
+                    <select id="gameFilter">
+                        <option value="all">Todos los Juegos</option>
+                        <option value="lords-mobile">Lords Mobile</option>
+                        <option value="free-fire">Free Fire</option>
+                        <option value="blood-strike">Blood Strike</option>
+                        <option value="genshin-impact">Genshin Impact</option>
+                    </select>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Profits Tab -->
+            <div class="tab-content" id="profits">
+                <div class="section-header">
+                    <h2>Configuración de Ganancias por Vendedor</h2>
+                    <button class="btn-primary" id="saveProfitsBtn">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                </div>
+
+                <div class="profits-filters">
+                    <select id="profitGameFilter">
+                        <option value="lords-mobile">Lords Mobile</option>
+                        <option value="free-fire">Free Fire</option>
+                        <option value="blood-strike">Blood Strike</option>
+                        <option value="genshin-impact">Genshin Impact</option>
+                    </select>
+                    <select id="profitVendorFilter">
+                        <option value="all">Todos los Vendedores</option>
+                        <option value="XJoseDharckX">XJoseDharckX</option>
+                        <option value="David">David</option>
+                        <option value="Ernesto">Ernesto</option>
+                        <option value="Satoru">Satoru</option>
+                    </select>
+                </div>
+
+                <div class="profits-table-container">
+                    <table class="profits-table" id="profitsTable">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio Base (USD)</th>
+                                <th>XJoseDharckX</th>
+                                <th>David</th>
+                                <th>Ernesto</th>
+                                <th>Satoru</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="profitsTableBody">
+                            <!-- Profits data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="tab-content" id="orders">
+                <div class="section-header">
+                    <h2>Gestión de Órdenes</h2>
+                    <div class="orders-filters">
+                        <select id="orderStatusFilter">
+                            <option value="all">Todos los Estados</option>
+                            <option value="pending">Pendientes</option>
+                            <option value="processing">Procesando</option>
+                            <option value="completed">Completadas</option>
+                            <option value="cancelled">Canceladas</option>
+                        </select>
+                        <select id="orderVendorFilter">
+                            <option value="all">Todos los Vendedores</option>
+                            <option value="XJoseDharckX">XJoseDharckX</option>
+                            <option value="David">David</option>
+                            <option value="Ernesto">Ernesto</option>
+                            <option value="Satoru">Satoru</option>
+                        </select>
+                        <input type="date" id="orderDateFilter">
+                    </div>
+                </div>
+
+                <div class="orders-table-container">
+                    <table class="orders-table" id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>ID Orden</th>
+                                <th>Cliente</th>
+                                <th>Juego</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                                <th>Vendedor</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Exchange Rates Tab -->
+            <div class="tab-content" id="exchange">
+                <div class="section-header">
+                    <h2>Tipos de Cambio</h2>
+                    <button class="btn-primary" id="updateRatesBtn">
+                        <i class="fas fa-sync-alt"></i> Actualizar desde API
+                    </button>
+                </div>
+
+                <div class="exchange-grid" id="exchangeGrid">
+                    <!-- Exchange rates will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Vendors Tab -->
+            <div class="tab-content" id="vendors">
+                <div class="section-header">
+                    <h2>Gestión de Vendedores</h2>
+                    <button class="btn-primary" id="addVendorBtn">
+                        <i class="fas fa-plus"></i> Agregar Vendedor
+                    </button>
+                </div>
+
+                <div class="vendors-grid" id="vendorsGrid">
+                    <!-- Vendors will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Agregar Producto</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productGame">Juego:</label>
+                        <select id="productGame" required>
+                            <option value="lords-mobile">Lords Mobile</option>
+                            <option value="free-fire">Free Fire</option>
+                            <option value="blood-strike">Blood Strike</option>
+                            <option value="genshin-impact">Genshin Impact</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Nombre del Producto:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Precio Base (USD):</label>
+                        <input type="number" id="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">Imagen:</label>
+                        <input type="text" id="productImage" placeholder="image/producto.png">
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">Categoría:</label>
+                        <select id="productCategory">
+                            <option value="normal">Normal</option>
+                            <option value="promotional">Promocional</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelProductBtn">Cancelar</button>
+                <button class="btn-primary" id="saveProductBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/google-sheets.js"></script>
+    <script src="js/admin-panel.js"></script>
+</body>
+</html>

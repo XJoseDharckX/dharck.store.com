@@ -109,9 +109,14 @@
             <div class="tab-content" id="products">
                 <div class="section-header">
                     <h2>Gestión de Productos</h2>
-                    <button class="btn-primary" id="addProductBtn">
-                        <i class="fas fa-plus"></i> Agregar Producto
-                    </button>
+                    <div class="header-actions">
+                        <button class="btn-primary" id="addProductBtn">
+                            <i class="fas fa-plus"></i> Agregar Producto
+                        </button>
+                        <button class="btn-secondary" id="manageTimersBtn">
+                            <i class="fas fa-clock"></i> Gestionar Temporizadores
+                        </button>
+                    </div>
                 </div>
 
                 <div class="game-selector">
@@ -122,10 +127,39 @@
                         <option value="blood-strike">Blood Strike</option>
                         <option value="genshin-impact">Genshin Impact</option>
                     </select>
+                    <div class="view-toggle">
+                        <button class="btn-toggle active" data-view="grid">
+                            <i class="fas fa-th"></i> Vista Cuadrícula
+                        </button>
+                        <button class="btn-toggle" data-view="list">
+                            <i class="fas fa-list"></i> Vista Lista
+                        </button>
+                    </div>
                 </div>
 
-                <div class="products-grid" id="productsGrid">
-                    <!-- Products will be loaded here -->
+                <div class="products-container">
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                    <div class="products-list" id="productsList" style="display: none;">
+                        <table class="products-table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Producto</th>
+                                    <th>Juego</th>
+                                    <th>Precio</th>
+                                    <th>Estado</th>
+                                    <th>Temporizador</th>
+                                    <th>Tiempo Restante</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products table rows will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -250,6 +284,101 @@
     </div>
 
     <!-- Modals -->
+    <!-- Timer Management Modal -->
+    <div class="modal" id="timerModal">
+        <div class="modal-content timer-modal">
+            <div class="modal-header">
+                <h3 id="timerModalTitle">Gestionar Temporizador</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="timer-info">
+                    <div class="product-preview">
+                        <img id="timerProductImage" src="" alt="Producto">
+                        <div class="product-details">
+                            <h4 id="timerProductName"></h4>
+                            <p id="timerProductGame"></p>
+                            <p class="price" id="timerProductPrice"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="timerForm">
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="enableTimer">
+                            <span class="checkmark"></span>
+                            Activar temporizador promocional
+                        </label>
+                    </div>
+                    
+                    <div class="timer-settings" id="timerSettings" style="display: none;">
+                        <div class="form-group">
+                            <label for="timerDuration">Duración del temporizador:</label>
+                            <div class="duration-selector">
+                                <select id="timerDuration">
+                                    <option value="1">1 hora</option>
+                                    <option value="6">6 horas</option>
+                                    <option value="12">12 horas</option>
+                                    <option value="24" selected>24 horas</option>
+                                    <option value="48">48 horas</option>
+                                    <option value="72">72 horas</option>
+                                    <option value="168">1 semana</option>
+                                    <option value="custom">Personalizado</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group custom-duration" id="customDuration" style="display: none;">
+                            <label>Duración personalizada:</label>
+                            <div class="custom-time-inputs">
+                                <input type="number" id="customDays" placeholder="Días" min="0" max="30">
+                                <input type="number" id="customHours" placeholder="Horas" min="0" max="23">
+                                <input type="number" id="customMinutes" placeholder="Minutos" min="0" max="59">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timerAction">Acción al finalizar:</label>
+                            <select id="timerAction">
+                                <option value="hide">Ocultar producto</option>
+                                <option value="disable">Deshabilitar producto</option>
+                                <option value="notify">Solo notificar</option>
+                            </select>
+                        </div>
+                        
+                        <div class="timer-preview">
+                            <h4>Vista previa del temporizador:</h4>
+                            <div class="countdown-preview">
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="previewDays">00</span>
+                                    <span class="countdown-label">Días</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="previewHours">24</span>
+                                    <span class="countdown-label">Horas</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="previewMinutes">00</span>
+                                    <span class="countdown-label">Minutos</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="previewSeconds">00</span>
+                                    <span class="countdown-label">Segundos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelTimerBtn">Cancelar</button>
+                <button class="btn-primary" id="saveTimerBtn">Guardar Temporizador</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal actualizado -->
     <div class="modal" id="productModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -285,6 +414,13 @@
                             <option value="normal">Normal</option>
                             <option value="promotional">Promocional</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="productTimerEnabled">
+                            <span class="checkmark"></span>
+                            Configurar temporizador promocional
+                        </label>
                     </div>
                 </form>
             </div>

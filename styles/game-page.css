@@ -171,16 +171,17 @@
     }
 }
 
+/* Mejoras para productos en páginas de juegos */
 .product-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Imagen más grande */
+    height: 80px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 50%;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
     overflow: hidden;
     position: relative;
@@ -190,417 +191,166 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 15px;
     position: absolute;
     top: 0;
     left: 0;
 }
 
-/* Tarjetas de producto uniformes */
-.product-card {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .product-card h4 {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Texto más pequeño */
     margin-bottom: 0.5rem;
     color: #333;
-}
-
-.product-description {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.8rem;
-    min-height: 2.7rem;
+    min-height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
+.product-description {
+    font-size: 0.8rem; /* Texto más pequeño */
+    color: #666;
+    margin-bottom: 0.8rem;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+}
+
 .product-price {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #667eea;
     margin-bottom: 1rem;
 }
 
-.quantity-selector {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    margin: 1rem 0;
-}
-
-.qty-btn {
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s, transform 0.1s;
-}
-
-.qty-btn:hover {
-    background: #5a6fd8;
-}
-
-.qty-btn:active {
-    transform: scale(0.95);
-}
-
-.quantity {
-    font-size: 1.1rem;
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
-    color: #333;
-}
-
-.add-to-cart {
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.1s;
-    margin-top: auto;
-}
-
-.add-to-cart:hover {
-    background: #218838;
-}
-
-.add-to-cart:active {
-    transform: scale(0.98);
-}
-
-/* Responsive completo para móvil */
+/* Responsive para móvil - 3 columnas en productos */
 @media (max-width: 768px) {
-    .game-main {
-        padding-top: 110px;
-    }
-    
-    .purchase-section {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .cart-sidebar {
-        position: static;
-        order: -1;
-        margin-bottom: 1rem;
-        padding: 1.2rem;
-    }
-    
-    .game-header {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-        gap: 1rem;
-    }
-    
-    .game-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto;
-    }
-    
-    .game-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 20px;
-    }
-    
-    .game-info h1 {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .game-info p {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .game-rating {
-        justify-content: center;
-        gap: 0.2rem;
-    }
-    
-    .product-category {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .product-category h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    
-    .promo-banner {
-        text-align: center;
-        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-        color: white;
-        padding: 0.8rem;
-        border-radius: 10px;
-        margin-bottom: 1.5rem;
-        font-weight: bold;
-        font-size: 0.9rem;
-    }
-    
     .products {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        gap: 0.8rem;
     }
     
-    /* Productos uniformes en móvil */
     .product-card {
-        padding: 1.3rem;
-        min-height: 300px;
-        margin: 0;
+        padding: 1rem;
+        min-height: 280px;
     }
     
     .product-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+        width: 60px; /* Imagen grande pero adaptada */
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
     }
     
     .product-card h4 {
-        font-size: 1.1rem;
-        min-height: 2.2rem;
+        font-size: 0.85rem; /* Texto pequeño pero legible */
+        min-height: 1.8rem;
+        line-height: 1.2;
     }
     
     .product-description {
-        font-size: 0.85rem;
-        min-height: 2.4rem;
+        font-size: 0.7rem; /* Texto más pequeño */
+        min-height: 2rem;
+        line-height: 1.2;
     }
     
     .product-price {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-bottom: 0.8rem;
     }
     
     .quantity-selector {
-        margin: 0.8rem 0;
+        margin: 0.6rem 0;
+        gap: 0.5rem;
     }
     
     .qty-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1.1rem;
-    }
-    
-    .quantity {
-        font-size: 1.1rem;
-        min-width: 35px;
-    }
-    
-    .add-to-cart {
-        padding: 0.9rem 1.5rem;
-        font-size: 1rem;
-        border-radius: 20px;
-    }
-    
-    /* Promociones en móvil */
-    .promo-card {
-        background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-        color: white;
-        border: 2px solid #ff6b6b;
-        min-height: 320px;
-    }
-    
-    .promo-card .product-icon {
-        background: linear-gradient(135deg, #ffa502, #ff6348);
-        box-shadow: 0 5px 15px rgba(255, 165, 2, 0.4);
-    }
-    
-    .promo-card h4,
-    .promo-card .product-description,
-    .promo-card .product-price {
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
-    
-    .promo-badge {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.6rem;
-        top: -3px;
-        right: -3px;
-        border-radius: 12px;
-    }
-    
-    /* Cart sidebar móvil */
-    .cart-sidebar h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-    }
-    
-    .cart-item {
-        padding: 0.8rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .cart-item-info h4 {
-        font-size: 0.95rem;
-    }
-    
-    .cart-item-price {
+        width: 28px;
+        height: 28px;
         font-size: 0.9rem;
     }
     
-    .cart-item-remove {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
+    .quantity {
+        font-size: 0.9rem;
+        min-width: 25px;
     }
     
-    .checkout-btn {
-        padding: 1.2rem;
-        font-size: 1.1rem;
-        border-radius: 20px;
-    }
-    
-    /* Modal checkout móvil */
-    .checkout-modal {
-        max-width: 95%;
-        margin: 2% auto;
-        max-height: 95vh;
-        border-radius: 20px;
-    }
-    
-    .modal-header {
-        padding-bottom: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .modal-header h2 {
-        font-size: 1.4rem;
-    }
-    
-    .close {
-        font-size: 1.8rem;
-    }
-    
-    .form-group {
-        gap: 0.4rem;
-    }
-    
-    .form-group label {
-        font-size: 0.95rem;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        padding: 1rem;
-        font-size: 1rem;
-        border-radius: 8px;
-    }
-    
-    .order-summary {
-        padding: 1.2rem;
-        border-radius: 12px;
-    }
-    
-    .submit-order-btn {
-        padding: 1.2rem 2rem;
-        font-size: 1.1rem;
-        border-radius: 20px;
+    .add-to-cart {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        border-radius: 15px;
     }
 }
 
-/* Pantallas muy pequeñas */
+/* Para pantallas muy pequeñas */
 @media (max-width: 480px) {
-    .game-main {
-        padding-top: 100px;
-    }
-    
-    .game-header {
-        padding: 1.2rem;
-    }
-    
-    .game-icon {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .game-info h1 {
-        font-size: 1.6rem;
-    }
-    
-    .product-category {
-        padding: 1.2rem;
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
     }
     
     .product-card {
-        padding: 1.1rem;
-        min-height: 280px;
+        padding: 0.8rem;
+        min-height: 260px;
     }
     
     .product-icon {
         width: 50px;
         height: 50px;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
-    .checkout-modal {
-        margin: 1% auto;
-        padding: 1rem;
+    .product-card h4 {
+        font-size: 0.8rem;
+    }
+    
+    .product-description {
+        font-size: 0.65rem;
+    }
+    
+    .add-to-cart {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
 
-/* Pantallas extra pequeñas */
+/* Para pantallas extra pequeñas */
 @media (max-width: 360px) {
-    .game-info h1 {
-        font-size: 1.4rem;
-    }
-    
-    .product-category h3 {
-        font-size: 1.2rem;
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
     }
     
     .product-card {
-        padding: 1rem;
-        min-height: 260px;
+        padding: 0.6rem;
+        min-height: 240px;
     }
     
     .product-icon {
         width: 45px;
         height: 45px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .product-card h4 {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     
     .product-description {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
+    }
+    
+    .product-price {
+        font-size: 0.9rem;
+    }
+    
+    .add-to-cart {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -625,5 +375,616 @@
     
     .promo-card:active {
         transform: scale(0.98);
+    }
+}
+
+/* Estilos para la sección de información del jugador */
+.player-info-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.player-info-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.player-info-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.player-info-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-info-form label {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.player-info-form input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+.player-info-form input:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.player-info-form small {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Ajustes para artículos menos alargados */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+    max-height: 250px;
+    position: relative;
+}
+
+.product-card .product-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-card h4 {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.product-card .product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 8px 0;
+}
+
+/* Ajustes para botones de cantidad */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.quantity {
+    font-size: 0.95rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Botón agregar */
+.add-to-cart {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+}
+
+/* Media Queries para diferentes dispositivos */
+
+/* Tablets y pantallas medianas (768px y menos) */
+@media (max-width: 768px) {
+    .player-info-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .player-info-section {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .player-info-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .product-categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .product-card {
+        padding: 12px;
+        min-height: 180px;
+        max-height: 220px;
+    }
+    
+    .product-card .product-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .product-card h4 {
+        font-size: 0.9rem;
+    }
+    
+    .product-card .product-price {
+        font-size: 1rem;
+    }
+    
+    .qty-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 0.9rem;
+    }
+    
+    .quantity {
+        font-size: 0.9rem;
+    }
+    
+    .add-to-cart {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Móviles pequeños (480px y menos) */
+@media (max-width: 480px) {
+    .player-info-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .player-info-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .player-info-form input {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    .product-categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .product-card {
+        padding: 10px;
+        min-height: 160px;
+        max-height: 200px;
+    }
+    
+    .product-card .product-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .product-card h4 {
+        font-size: 0.85rem;
+        margin: 6px 0;
+    }
+    
+    .product-card .product-price {
+        font-size: 0.95rem;
+    }
+    
+    .qty-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+    
+    .quantity {
+        font-size: 0.85rem;
+    }
+    
+    .add-to-cart {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Móviles muy pequeños (360px y menos) */
+@media (max-width: 360px) {
+    .player-info-section {
+        padding: 12px;
+    }
+    
+    .player-info-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .product-categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .product-card {
+        padding: 8px;
+        min-height: 150px;
+        max-height: 180px;
+    }
+    
+    .product-card .product-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .product-card h4 {
+        font-size: 0.8rem;
+        margin: 5px 0;
+    }
+    
+    .product-card .product-price {
+        font-size: 0.9rem;
+    }
+    
+    .qty-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
+    }
+    
+    .quantity {
+        font-size: 0.8rem;
+    }
+    
+    .add-to-cart {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Pantallas grandes (PC - 1024px y más) */
+@media (min-width: 1024px) {
+    .player-info-section {
+        padding: 30px;
+        margin-bottom: 35px;
+    }
+    
+    .player-info-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .player-info-form {
+        max-width: 800px;
+        margin: 0 auto;
+        gap: 25px;
+    }
+    
+    .player-info-form input {
+        padding: 14px 18px;
+        font-size: 1.05rem;
+    }
+    
+    .product-categories {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    .product-card {
+        padding: 20px;
+        min-height: 220px;
+        max-height: 280px;
+    }
+    
+    .product-card .product-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .product-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .product-card .product-price {
+        font-size: 1.2rem;
+    }
+    
+    .qty-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+    
+    .quantity {
+        font-size: 1rem;
+    }
+    
+    .add-to-cart {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Botón del carrito en el header */
+.cart-toggle {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-toggle:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.cart-badge {
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Ocultar el botón de engranaje */
+.admin-toggle {
+    display: none !important;
+}
+
+/* Optimización del carrito lateral */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+/* Mover vendedores oficiales al final */
+.seller-section {
+    order: 999;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
+}
+
+/* Optimización para móviles - 3 columnas en diamantes */
+@media (max-width: 768px) {
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .product-card {
+        padding: 8px;
+        min-height: 180px;
+        max-height: 200px;
+    }
+    
+    .product-card .product-icon img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .product-card h4 {
+        font-size: 11px;
+        margin: 5px 0;
+        line-height: 1.2;
+    }
+    
+    .product-price {
+        font-size: 12px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    
+    .quantity-selector {
+        margin: 5px 0;
+    }
+    
+    .qty-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        padding: 0;
+    }
+    
+    .quantity {
+        font-size: 11px;
+        min-width: 25px;
+    }
+    
+    .add-to-cart {
+        font-size: 10px;
+        padding: 4px 8px;
+        margin-top: 5px;
+    }
+    
+    .cart-toggle {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding: 8px;
+    }
+    
+    .product-card {
+        padding: 6px;
+        min-height: 160px;
+        max-height: 180px;
+    }
+    
+    .product-card .product-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .product-card h4 {
+        font-size: 10px;
+        margin: 3px 0;
+    }
+    
+    .product-price {
+        font-size: 11px;
+        margin: 3px 0;
+    }
+    
+    .qty-btn {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+    
+    .quantity {
+        font-size: 10px;
+        min-width: 20px;
+    }
+    
+    .add-to-cart {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+    
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+        padding: 6px;
+    }
+    
+    .product-card {
+        padding: 4px;
+        min-height: 140px;
+        max-height: 160px;
+    }
+    
+    .product-card .product-icon img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .product-card h4 {
+        font-size: 9px;
+        margin: 2px 0;
+    }
+    
+    .product-price {
+        font-size: 10px;
+        margin: 2px 0;
+    }
+    
+    .qty-btn {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+    }
+    
+    .quantity {
+        font-size: 9px;
+        min-width: 18px;
+    }
+    
+    .add-to-cart {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+}
+
+/* Estilos para PC - 4-5 columnas */
+@media (min-width: 1024px) {
+    .products {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .products {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
     }
 }

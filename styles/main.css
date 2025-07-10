@@ -125,6 +125,7 @@ body {
     color: #333;
 }
 
+/* Mejoras para artículos en página principal */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,101 +135,203 @@ body {
 .game-card {
     background: white;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     border: 2px solid transparent;
-}
-
-.game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: #667eea;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .game-image {
-    width: 80px;
-    height: 80px;
+    width: 120px; /* Imagen más grande */
+    height: 120px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 50%;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .game-image i {
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
 }
 
 .game-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Texto más pequeño */
     margin-bottom: 0.5rem;
     color: #333;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .game-card p {
     color: #666;
     margin-bottom: 1rem;
-}
-
-.game-price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #667eea;
-}
-
-/* Seller Info */
-.seller-info {
-    background: #f8f9fa;
-    padding: 60px 0;
-}
-
-.seller-info h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.seller-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    max-width: 500px;
-    margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.seller-avatar {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border-radius: 50%;
+    font-size: 0.85rem; /* Texto más pequeño */
+    min-height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.game-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive mejorado para móvil - 3 columnas */
+@media (max-width: 768px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
+        gap: 0.8rem;
+        padding: 0 5px;
+    }
+    
+    .game-card {
+        padding: 1rem;
+        min-height: 280px;
+    }
+    
+    .game-image {
+        width: 80px; /* Imagen grande pero adaptada */
+        height: 80px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .game-image i {
+        font-size: 2rem;
+    }
+    
+    .game-card h3 {
+        font-size: 0.9rem; /* Texto pequeño pero legible */
+        min-height: 2rem;
+        line-height: 1.2;
+    }
+    
+    .game-card p {
+        font-size: 0.75rem; /* Texto más pequeño */
+        min-height: 2rem;
+        line-height: 1.3;
+    }
+    
+    .game-price {
+        font-size: 1rem;
+        padding-top: 0.5rem;
+    }
+}
+
+/* Para pantallas muy pequeñas - mantener 3 columnas */
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .game-card {
+        padding: 0.8rem;
+        min-height: 260px;
+    }
+    
+    .game-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .game-card h3 {
+        font-size: 0.85rem;
+    }
+    
+    .game-card p {
+        font-size: 0.7rem;
+    }
+}
+
+/* Para pantallas extra pequeñas - 3 columnas compactas */
+@media (max-width: 360px) {
+    .games-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .game-card {
+        padding: 0.6rem;
+        min-height: 240px;
+    }
+    
+    .game-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .game-card h3 {
+        font-size: 0.8rem;
+    }
+    
+    .game-card p {
+        font-size: 0.65rem;
+    }
+    
+    .game-price {
+        font-size: 0.9rem;
+    }
+}
+
+/* Seller info móvil */
+.seller-info {
+    padding: 40px 0;
+}
+
+.seller-info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.seller-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 350px;
+}
+
+.seller-avatar {
+    width: 70px;
+    height: 70px;
 }
 
 .seller-avatar i {
-    font-size: 2rem;
-    color: white;
+    font-size: 1.8rem;
 }
 
 .seller-details h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #333;
 }
 
 .seller-details p {
-    color: #666;
+    font-size: 0.95rem;
     margin-bottom: 0.3rem;
 }
 
@@ -237,381 +340,68 @@ body {
     color: #667eea;
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-}
-
+/* Modal móvil mejorado */
 .modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    animation: modalSlideIn 0.3s ease-out;
-}
-
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    margin: 3% auto;
+    padding: 1.5rem;
+    width: 95%;
+    max-width: 380px;
+    border-radius: 20px;
 }
 
 .modal-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
 }
 
 .modal-content p {
-    color: #666;
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
 .country-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .country-option {
-    padding: 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.country-option:hover {
-    border-color: #667eea;
-    background: #f0f4ff;
-}
-
-.country-option.selected {
-    border-color: #667eea;
-    background: #667eea;
-    color: white;
+    padding: 1.2rem;
+    font-size: 1rem;
+    justify-content: flex-start;
+    border-radius: 12px;
+    min-height: 60px;
 }
 
 .flag {
     font-size: 1.5rem;
+    margin-right: 0.8rem;
 }
 
 .btn-secondary {
-    background: #6c757d;
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    cursor: pointer;
+    padding: 1rem 2rem;
     font-size: 1rem;
-    transition: background 0.3s;
+    margin-top: 1rem;
+    border-radius: 20px;
+    width: 100%;
 }
 
-.btn-secondary:hover {
-    background: #5a6268;
-}
-
-/* Footer */
+/* Footer móvil */
 .footer {
-    background: #333;
-    color: white;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.footer .container {
+    flex-direction: column;
+    gap: 0.5rem;
     text-align: center;
-    padding: 2rem 0;
 }
 
 .admin-link {
-    color: #667eea;
-    text-decoration: none;
-    margin-left: 1rem;
+    margin: 0;
 }
 
-.admin-link:hover {
-    text-decoration: underline;
-}
-
-/* Responsive - Mejoras completas para móvil */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    /* Header móvil optimizado */
-    .header {
-        padding: 0.8rem 0;
-    }
-    
-    .header .container {
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 0.8rem 10px;
-    }
-    
-    .logo {
-        font-size: 1.3rem;
-    }
-    
-    .logo i {
-        font-size: 1.5rem;
-        margin-right: 0.3rem;
-    }
-    
-    .nav {
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .nav a {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.8rem;
-        border-radius: 15px;
-        transition: background 0.3s;
-    }
-    
-    .nav a:hover {
-        background: rgba(102, 126, 234, 0.1);
-    }
-    
-    .currency-display {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 15px;
-    }
-    
-    /* Hero section móvil */
-    .hero {
-        padding: 130px 0 50px;
-        text-align: center;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 0.8rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        padding: 0 10px;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.2rem;
-        margin-top: 2rem;
-        padding: 0 20px;
-    }
-    
-    .stat {
-        flex-direction: row;
-        gap: 0.8rem;
-        justify-content: center;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 1rem;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-    }
-    
-    .stat i {
-        font-size: 1.5rem;
-        margin-bottom: 0;
-    }
-    
-    .stat span {
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-    
-    /* Games section móvil mejorado */
-    .games-section {
-        padding: 50px 0;
-    }
-    
-    .games-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        padding: 0 10px;
-    }
-    
-    .games-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        padding: 0 5px;
-    }
-    
-    /* Tarjetas de juego uniformes */
-    .game-card {
-        padding: 1.5rem;
-        margin: 0;
-        min-height: 280px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-    }
-    
-    .game-image {
-        width: 70px;
-        height: 70px;
-        margin: 0 auto 1rem;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .game-image i {
-        font-size: 1.8rem;
-    }
-    
-    .game-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.8rem;
-        text-align: center;
-        min-height: 2.6rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .game-card p {
-        font-size: 0.9rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        min-height: 2.7rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .game-price {
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: auto;
-        padding-top: 1rem;
-        border-top: 1px solid #eee;
-    }
-    
-    /* Seller info móvil */
-    .seller-info {
-        padding: 40px 0;
-    }
-    
-    .seller-info h2 {
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .seller-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        padding: 1.5rem;
-        max-width: 350px;
-    }
-    
-    .seller-avatar {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .seller-avatar i {
-        font-size: 1.8rem;
-    }
-    
-    .seller-details h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .seller-details p {
-        font-size: 0.95rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    /* Modal móvil mejorado */
-    .modal-content {
-        margin: 3% auto;
-        padding: 1.5rem;
-        width: 95%;
-        max-width: 380px;
-        border-radius: 20px;
-    }
-    
-    .modal-content h3 {
-        font-size: 1.4rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .modal-content p {
-        font-size: 0.9rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .country-grid {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .country-option {
-        padding: 1.2rem;
-        font-size: 1rem;
-        justify-content: flex-start;
-        border-radius: 12px;
-        min-height: 60px;
-    }
-    
-    .flag {
-        font-size: 1.5rem;
-        margin-right: 0.8rem;
-    }
-    
-    .btn-secondary {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        margin-top: 1rem;
-        border-radius: 20px;
-        width: 100%;
-    }
-    
-    /* Footer móvil */
-    .footer {
-        padding: 1.5rem 0;
-        font-size: 0.9rem;
-    }
-    
-    .footer .container {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    
-    .admin-link {
-        margin: 0;
-    }
-}
 
 /* Pantallas muy pequeñas (menos de 480px) */
 @media (max-width: 480px) {

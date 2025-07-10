@@ -22,31 +22,49 @@
                     <span id="current-currency">USD</span>
                     <span id="current-country">🌍</span>
                 </div>
+                <!-- Botón del carrito movido aquí -->
+                <button class="cart-toggle" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
             </nav>
         </div>
     </header>
 
     <main class="game-main">
-        <div class="container">
+        <div class="game-main">
             <div class="game-header">
-                <div class="game-icon">
-                    <img src="image/lm1.png" alt="Lords Mobile" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
-                </div>
                 <div class="game-info">
-                    <h1>Lords Mobile</h1>
-                    <p>Diamantes, pases y paquetes especiales para tu reino</p>
-                    <div class="game-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>4.8/5</span>
+                    <img src="image/lm1.png" alt="Lords Mobile" class="game-icon">
+                    <div class="game-details">
+                        <h1>Lords Mobile</h1>
+                        <p>Diamantes, pases y paquetes especiales para tu reino</p>
+                        <div class="game-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información del jugador movida arriba -->
+            <div class="player-info-section">
+                <h3>Información del Jugador</h3>
+                <div class="player-info-form">
+                    <div class="form-group">
+                        <label for="igg-id">IGG ID del jugador:</label>
+                        <input type="text" id="igg-id" placeholder="Ingresa tu IGG ID" required>
+                        <small>Puedes encontrar tu IGG ID en el perfil del juego</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="castle-name">Nombre del castillo:</label>
+                        <input type="text" id="castle-name" placeholder="Ingresa el nombre de tu castillo" required>
                     </div>
                 </div>
             </div>
 
             <div class="purchase-section">
+                <div class="product-categories">
                 <div class="products-grid">
                     <!-- Diamantes en Promoción -->
                     <div class="product-category promo-category">
@@ -195,13 +213,14 @@
                         <h3><i class="fas fa-gem"></i> Pases y Diamantes</h3>
                         <div class="products">
                             <!-- Pases -->
-                            <div class="product-card" data-product="weekly-pass" data-price="2.30" data-enabled="true">
+                            <div class="product-card" data-product="weekly-pass" data-price="5.20" data-enabled="true">
+                                <div class="promo-badge">¡OFERTA!</div>
                                 <div class="product-icon">
-                                    <img src="image/7day.png" alt="Pase Semanal">
+                                    <img src="image/pase-semanal.png" alt="Pase Semanal">
                                 </div>
-                                <h4>PASE SEMANAL</h4>
-                                <p class="product-description">7 días de beneficios</p>
-                                <p class="product-price" data-usd="2.30">$2.30</p>
+                                <h4>Pase Semanal</h4>
+                                <!-- Descripción eliminada -->
+                                <p class="product-price" data-usd="5.20">$5.20</p>
                                 <div class="quantity-selector">
                                     <button class="qty-btn" onclick="changeQuantity('weekly-pass', -1)">-</button>
                                     <span class="quantity" id="qty-weekly-pass">1</span>
@@ -407,7 +426,7 @@
                                     <img src="image/icon-happy.png" alt="50304 Diamantes">
                                 </div>
                                 <h4>50304💎</h4>
-                                <p class="product-description">Mega pack de diamantes</p>
+                                <!-- Descripción eliminada -->
                                 <p class="product-price" data-usd="440.00">$440.00</p>
                                 <div class="quantity-selector">
                                     <button class="qty-btn" onclick="changeQuantity('gems-50304', -1)">-</button>
@@ -463,12 +482,12 @@
                 </div>
             </div>
 
-            <!-- Admin Toggle -->
-            <div class="admin-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+            <!-- Admin Toggle - REMOVIDO -->
+            <!-- <div class="admin-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
                 <button id="admin-mode-btn" onclick="toggleAdminMode()" style="background: #dc3545; color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer;">
                     <i class="fas fa-cog"></i>
                 </button>
-            </div>
+            </div> -->
         </div>
     </main>
 
@@ -481,6 +500,20 @@
             </div>
             <div class="checkout-form">
                 <div class="form-group">
+                    <label>País:</label>
+                    <select id="country-select" onchange="updatePaymentMethods()" required>
+                        <option value="">Seleccionar país</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="VE">Venezuela</option>
+                        <option value="CO">Colombia</option>
+                        <option value="MX">México</option>
+                        <option value="AR">Argentina</option>
+                        <option value="PE">Perú</option>
+                        <option value="CL">Chile</option>
+                        <option value="EC">Ecuador</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>ID de Usuario en Lords Mobile:</label>
                     <input type="text" id="game-id" placeholder="Ingresa tu ID de Lords Mobile" required>
                     <small>Puedes encontrar tu ID en el perfil del juego</small>
@@ -488,12 +521,7 @@
                 <div class="form-group">
                     <label>Método de Pago:</label>
                     <select id="payment-method" required>
-                        <option value="">Seleccionar método</option>
-                        <option value="paypal">PayPal</option>
-                        <option value="zelle">Zelle</option>
-                        <option value="binance">Binance Pay</option>
-                        <option value="bank">Transferencia Bancaria</option>
-                        <option value="crypto">Criptomonedas</option>
+                        <option value="">Primero selecciona tu país</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -521,5 +549,6 @@
     <script src="js/cart.js"></script>
     <script src="js/orders.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/payment-methods.js"></script>
 </body>
 </html>

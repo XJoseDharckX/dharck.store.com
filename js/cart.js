@@ -290,3 +290,20 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+// Función para mostrar/ocultar carrito
+function toggleCart() {
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    cartSidebar.classList.toggle('active');
+}
+
+// Cerrar carrito al hacer clic fuera
+document.addEventListener('click', function(event) {
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const cartToggle = document.querySelector('.cart-toggle');
+    
+    if (!cartSidebar.contains(event.target) && !cartToggle.contains(event.target)) {
+        cartSidebar.classList.remove('active');
+    }
+});
